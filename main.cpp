@@ -47,6 +47,10 @@ class Dictionary {
         }
     };
 
+    void remove(Node *currNode){
+
+    };
+
     void inOrderTraversal(Node *currNode) {
         if (currNode == nullptr) {
             return;
