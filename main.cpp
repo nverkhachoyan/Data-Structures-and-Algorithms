@@ -22,33 +22,75 @@ class Dictionary {
    public:
     Dictionary() { this->root = nullptr; };
 
-    void insert(std::string *newWord, std::string *newMeaning) {
-        Node *newNode = new Node(newWord, newMeaning);
+    void insert(std::string *word, std::string *meaning) {
+        Node *newNode = new Node(word, meaning);
 
         if (!root) {
             root = newNode;
             return;
         }
 
-        Node *currNode = root;
+        Node *curr = root;
+        Node *parent = nullptr;
 
-        while (currNode->left != nullptr || currNode->right != nullptr) {
-            if (newNode->word < currNode->word) {
-                currNode = currNode->left;
+        while (curr != nullptr) {
+            parent = curr;
+            if (*newNode->word < *curr->word) {
+                curr = curr->left;
+            } else if (*newNode->word > *curr->word) {
+                curr = curr->right;
             } else {
-                currNode = currNode->right;
+                return;  // simply return if duplicate element is inserted
             }
         }
 
-        if (currNode->left == nullptr) {
-            currNode->left = newNode;
+        if (parent->left == nullptr) {
+            parent->left = newNode;
         } else {
-            currNode->right = newNode;
+            parent->right = newNode;
         }
     };
 
-    void remove(Node *currNode){
+    void remove(std::string *word) {
+        // case 0, BST does not exist
+        if (!root) {
+            std::cout << "Empty dictionary.\n";
+            return;
+        }
 
+        // case 1, leaf node
+        Node *curr = this->root;
+        Node *parent = curr;
+
+        while (curr != nullptr) {
+            if (*word < *curr->word) {
+                parent = curr;
+                curr = curr->left;
+            } else if (*word > *curr->word) {
+                parent = curr;
+                curr = curr->right;
+            } else {
+                std::cout << "Found element.\n";
+                break;  // found element
+            }
+        }
+
+        if (curr == nullptr) {
+            std::cout << "Not found to be deleted.\n";
+            return;
+        }
+
+        if (*parent->left->word == *word) {
+            Node *tmp = parent->left;
+            parent->left = nullptr;
+            delete tmp;
+        } else {
+            Node *tmp = parent->right;
+            parent->right = nullptr;
+            delete tmp;
+        }
+
+        // case 1 and 2 will be implemented soon
     };
 
     void inOrderTraversal(Node *currNode) {
@@ -77,6 +119,14 @@ int main() {
     std::string word2 = "Yellow";
     std::string meaning2 = "Color";
     myDict.insert(&word2, &meaning2);
+
+    std::string word3 = "Yellow";
+    std::string meaning3 = "Color";
+    myDict.insert(&word3, &meaning3);
+
+    std::string tempWord = "Green";
+
+    myDict.remove(&word3);
 
     myDict.inOrderTraversal(myDict.getRoot());
 
