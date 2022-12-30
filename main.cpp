@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-// A dictionary Implementation
+// A dictionary Implementation usng a BST
 
 struct Node {
     std::string word, meaning;
@@ -18,6 +18,7 @@ class Dictionary {
    public:
     Dictionary() : root(nullptr){};
 
+    // Gets a word/meaning pair and inserts them in the BST
     void insert(std::string word, std::string meaning) {
         Node *newNode = new Node(word, meaning);
 
@@ -48,6 +49,8 @@ class Dictionary {
         }
     };
 
+    // Gets a word and returns a pair of Node pointers
+    // First is the node conatining keyword, second is the parent of node
     std::pair<Node *, Node *> search(std::string word) {
         Node *curr = root;
         Node *parent = curr;
@@ -67,6 +70,8 @@ class Dictionary {
         return std::make_pair(curr, parent);
     };
 
+    // Gets a string and searches it in the dictionary.
+    // Removes it upon finding it. Returns false if not found.
     bool remove(std::string word) {
         // case 0, BST does not exist
         if (!root) {
@@ -118,6 +123,7 @@ class Dictionary {
         return false;
     };
 
+    // Traverses the BST in order
     void inOrderTraversal(Node *currNode) {
         if (currNode == nullptr) {
             return;
@@ -127,6 +133,7 @@ class Dictionary {
         inOrderTraversal(currNode->right);
     };
 
+    // Returns the root of the BST
     Node *getRoot() { return root; };
 };
 
