@@ -130,5 +130,5 @@ The successor is the node with the smallest value in the right subtree of the ta
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="/src/imgs/thesuccessor.png">
   <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/thesuccessorDarkMode.png">
-  <img alt="The successor" src="/src/imgs/thesuccessor.png">
+  <img alt="The successor" max-width="400px" src="/src/imgs/thesuccessor.png">
 </picture>
