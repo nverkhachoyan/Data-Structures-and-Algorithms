@@ -1,6 +1,5 @@
-#include <string.h>
-
 #include <iostream>
+#include <string>
 
 // A dictionary Implementation
 
@@ -17,7 +16,7 @@ class Dictionary {
     Node *root;
 
    public:
-    Dictionary() { this->root = nullptr; };
+    Dictionary() : root(nullptr){};
 
     void insert(std::string word, std::string meaning) {
         Node *newNode = new Node(word, meaning);
@@ -119,13 +118,13 @@ class Dictionary {
         return false;
     };
 
-    void inOrder(Node *currNode) {
+    void inOrderTraversal(Node *currNode) {
         if (currNode == nullptr) {
             return;
         }
-        inOrder(currNode->left);
+        inOrderTraversal(currNode->left);
         std::cout << currNode->word << " : " << currNode->meaning << "\n";
-        inOrder(currNode->right);
+        inOrderTraversal(currNode->right);
     };
 
     Node *getRoot() { return root; };
@@ -144,13 +143,19 @@ int main() {
     myDict.insert("T", "Color");
     myDict.insert("P", "Color");
 
+    std::cout << "Traversing the dictionary.\n";
+    myDict.inOrderTraversal(myDict.getRoot());
+
     if (myDict.remove("B")) {
-        std::cout << "Removed.\n";
+        std::cout << "Removed B.\n";
     } else {
         std::cout << "Not found.\n";
     }
 
-    myDict.inOrder(myDict.getRoot());
+    std::cout << "\n";
+    std::cout << "Traversing the dictionary after removal of an item."
+              << std::endl;
+    myDict.inOrderTraversal(myDict.getRoot());
 
     return 0;
 }
