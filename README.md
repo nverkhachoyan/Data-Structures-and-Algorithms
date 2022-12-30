@@ -1,4 +1,4 @@
-# Dictionary-Implementation-BST-
+# Dictionary Implementation BST
 
 This program implements a dictionary data structure using a BST. The dictionary stores key-value pairs and allows for efficient search, insert, and delete operations. Please note that this BST implementation is not self-balancing. As a result, the performance of the dictionary may degrade if the BST becomes heavily unbalanced.
 
@@ -118,3 +118,13 @@ graph TD;
     classDef blue fill:#2471A3;
     classDef green fill:#008080;
 ```
+
+#### The Successor of a Node
+
+Many people think that the successor of a node is simply the left child of the right child of the node. However, this is not true, and I will demonstrate it via the graph below. The simple idea of a successor is that it follows the current value, as in it comes immediately after it. In the graph below, 12 appears after 10, but it is not the next value in sequence. If 10 were replaced with 12, the binary search tree would no longer be valid.
+
+![Not the successor](/src/imgs/notthesuccessor.png 'Not the success')
+
+The successor is the node with the smallest value in the right subtree of the target node. In other words, the successor is the leftmost element in the right subtre of the target node. In our case, that would be the node with the value 11.
+
+![The successor](/src/imgs/thesuccessor.png 'The success')

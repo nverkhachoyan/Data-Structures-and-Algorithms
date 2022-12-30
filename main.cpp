@@ -117,7 +117,19 @@ class Dictionary {
         }
         // case 3, two children
         else {
-            std::cout << "Two children\n";
+            Node *successor = foundNode->right;
+
+            while (successor->left != nullptr) {
+                successor = successor->left;
+            }
+
+            std::string successorWord = successor->word;
+            std::string successorMeaning = successor->meaning;
+
+            remove(successor->word);
+
+            foundNode->word = successorWord;
+            foundNode->meaning = successorWord;
         }
 
         return false;
@@ -153,7 +165,7 @@ int main() {
     std::cout << "Traversing the dictionary.\n";
     myDict.inOrderTraversal(myDict.getRoot());
 
-    if (myDict.remove("B")) {
+    if (myDict.remove("Latte")) {
         std::cout << "Removed B.\n";
     } else {
         std::cout << "Not found.\n";
