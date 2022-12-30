@@ -14,6 +14,10 @@ Here is a list of operations this Dictionary can call.
 
 Removal involves three different cases, and they are illustrated in the graphs below. I first show the initial state of the graph, and then I explain the different cases with the corresponding graphs accompanying the explanations.
 
+Let's learn the differences between nodes.
+
+![Node Cases](/src//imgs//nodecases.png 'Node Types')
+
 Let's observe the initial state of the graph below, and then explain the necessary actions depending on each case. Something to note: if the "node" contains x, that means it doesn't exist. The parent points to a nullptr. This is a limitation of my graphing skills using mermaid. In the example below, node 6 has the left child 5 and it does not have a right child, hence the x.
 
 ```mermaid
