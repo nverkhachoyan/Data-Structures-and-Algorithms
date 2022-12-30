@@ -127,4 +127,7 @@ Many people think that the successor of a node is simply the left child of the r
 
 The successor is the node with the smallest value in the right subtree of the target node. In other words, the successor is the leftmost element in the right subtre of the target node. In our case, that would be the node with the value 11.
 
-![The successor](/src/imgs/thesuccessor.png 'The success')
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/thesuccessorDarkMode.png">
+  <img alt="The successor" src="/src/imgs/thesuccessor.png">
+</picture>
