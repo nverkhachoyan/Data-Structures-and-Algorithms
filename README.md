@@ -84,25 +84,33 @@ For the second case, we are removing a **node with one child**. In this case, we
 
 #### Case 3: Node with 2 children
 
-In this case, we will be removing a node from a binary search tree that has two children. To do this, we will first need to find the successor of the node that we want to remove. The successor is the next element in the tree after the node we are targeting. For example, in a list of numbers, if we want to remove the node containing the number 10, the successor would be the node containing the number 11 because it comes immediately after 10 in the tree. Once we have identified the successor, we will copy its data and use the remove function to remove it from its current position in the tree. Finally, we will replace the node that we originally targeted with the data from the successor. This will complete the removal process.
+In this case, we will delete a node from a binary search tree that has two children. To do this, we will first find the successor of the node to be deleted. The in-order successor is the next node in the tree that would be visited in an in-order traversal, which visits the nodes in a tree in ascending order (e.g., if the tree is a list of numbers, the in-order traversal would visit the nodes in ascending numerical order). For example, if the node to be deleted contains the number 10, the in-order successor would be the node containing the number 11 because it comes immediately after 10 in the in-order traversal. Once we have found the in-order successor, we replace the node to be deleted with it and adjust the connections between the nodes in the tree accordingly. Finally, we delete the original node and return true to indicate that the delete operation was successful.
 
 Here's the code snippet for the third case.
 
 ```cpp
 else {
   Node *successor = foundNode->right;
+  Node *temp = successor;
 
-  while (successor->left != nullptr) {
-      successor = successor->left;
+  while (1) {
+      successor = temp->left;
+      if (successor->left == nullptr) break;
+      temp = successor;
   }
 
-  std::string successorWord = successor->word;
-  std::string successorMeaning = successor->meaning;
+  temp->left = successor->right;
+  successor->left = foundNode->left;
 
-  remove(successor->word);
+  if (foundParent->left == foundNode) {
+      foundParent->left = successor;
+  } else {
+      foundParent->right = successor;
+  }
 
-  foundNode->word = successorWord;
-  foundNode->meaning = successorWord;
+  successor->right = foundNode->right;
+
+  delete foundNode;
   return true;
 }
 ```

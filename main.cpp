@@ -81,7 +81,7 @@ class Dictionary {
         // BST exists, we search for Node with key word
         std::pair<Node *, Node *> found = search(word);
         Node *foundNode = found.first;
-        Node *parentNode = found.second;
+        Node *foundParent = found.second;
 
         if (foundNode == nullptr) {
             return false;
@@ -89,13 +89,13 @@ class Dictionary {
 
         // case 1, leaf node
         if (foundNode->left == nullptr && foundNode->right == nullptr) {
-            if (parentNode->left->word == word) {
-                Node *tmp = parentNode->left;
-                parentNode->left = nullptr;
+            if (foundParent->left->word == word) {
+                Node *tmp = foundParent->left;
+                foundParent->left = nullptr;
                 delete tmp;
             } else {
-                Node *tmp = parentNode->right;
-                parentNode->right = nullptr;
+                Node *tmp = foundParent->right;
+                foundParent->right = nullptr;
                 delete tmp;
             }
             return true;  // successfully deleted
@@ -106,10 +106,10 @@ class Dictionary {
             Node *foundNodeChild =
                 foundNode->left != nullptr ? foundNode->left : foundNode->right;
 
-            if (parentNode->left == foundNode) {
-                parentNode->left = foundNodeChild;
+            if (foundParent->left == foundNode) {
+                foundParent->left = foundNodeChild;
             } else {
-                parentNode->right = foundNodeChild;
+                foundParent->right = foundNodeChild;
             }
 
             delete temp;
@@ -118,18 +118,26 @@ class Dictionary {
         // case 3, two children
         else {
             Node *successor = foundNode->right;
+            Node *temp = successor;
 
-            while (successor->left != nullptr) {
-                successor = successor->left;
+            while (1) {
+                successor = temp->left;
+                if (successor->left == nullptr) break;
+                temp = successor;
             }
 
-            std::string successorWord = successor->word;
-            std::string successorMeaning = successor->meaning;
+            temp->left = successor->right;
+            successor->left = foundNode->left;
 
-            remove(successor->word);
+            if (foundParent->left == foundNode) {
+                foundParent->left = successor;
+            } else {
+                foundParent->right = successor;
+            }
 
-            foundNode->word = successorWord;
-            foundNode->meaning = successorWord;
+            successor->right = foundNode->right;
+
+            delete foundNode;
             return true;
         }
 
@@ -167,7 +175,7 @@ int main() {
     myDict.inOrderTraversal(myDict.getRoot());
 
     if (myDict.remove("Latte")) {
-        std::cout << "Removed B.\n";
+        std::cout << "Removed Latte.\n";
     } else {
         std::cout << "Not found.\n";
     }
