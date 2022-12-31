@@ -19,7 +19,7 @@ Let's learn the differences between nodes.
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="/src/imgs/nodetypes.png">
   <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/nodetypesDarkMode.png">
-  <img alt="Node Types" width="400px" src="/src/imgs/nodetypes.png">
+  <img alt="Node Types" src="/src/imgs/nodetypes.png">
 </picture>
 
 Let's observe the initial state of the graph below, and then explain the necessary actions depending on each case. Something to note: if the "node" contains x, that means it doesn't exist. The parent points to a nullptr. This is a limitation of my graphing skills using mermaid. In the example below, node 6 has the left child 5 and it does not have a right child, hence the x.
