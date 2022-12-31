@@ -58,12 +58,6 @@ Let's observe the initial state of the graph below, and then explain the necessa
 
 For the first case, let's say we wanted to remove a **leaf node**. I'm going to choose to remove node 8, which is a left child of node 10. As you may already see, all I need to do is find the parent of the leaf node, and remove its left child. This is the simplest removal process as it just involves removing the left or right link from the parent and deleting the allocated memory for the node. Depending on what programming environment you use, you may not have to free the memory manually.
 
-<picture>
-  <source media="(prefers-color-scheme: light)" srcset="/src/imgs/leafnoderemoval.png">
-  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/leafnoderemovalDarkMode.png">
-  <img alt="Leaf Node Removal" src="/src/imgs/leafnoderemoval.png">
-</picture>
-
 ```cpp
 // case 1, leaf node
 if (foundNode->left == nullptr && foundNode->right == nullptr) {
@@ -80,23 +74,15 @@ if (foundNode->left == nullptr && foundNode->right == nullptr) {
 }
 ```
 
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="/src/imgs/leafnoderemoval.png">
+  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/leafnoderemovalDarkMode.png">
+  <img alt="Leaf Node Removal" src="/src/imgs/leafnoderemoval.png">
+</picture>
+
 #### Case 2: Node with 1 child
 
 For the second case, we are removing a **node with one child**. In this case, we find the parent of the node to be removed, and we replace the left or right child node of the parent with the child of the node that we want to remove. For example, if we wanted to remove 4 from the graph illustrated above, we first would find its parent. Node 4 is a left child of node 5, so we would replace the left child of node 5 with the left child of node 4 in our graph. It is also important to remember to free the memory that was allocated for the deleted node if possible.
-
-<picture>
-  <source media="(prefers-color-scheme: light)" srcset="/src/imgs/nodewith1ONE.png">
-  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/nodewith1ONEDarkMode.png">
-  <img alt="Node with 1 child removal" src="/src/imgs/nodewith1ONE.png>">
-</picture>
-
-<p align="center">
-<picture>
-  <source media="(prefers-color-scheme: light)" srcset="/src/imgs/nodewith1TWO.png">
-  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/nodewith1TWODarkMode.png">
-  <img alt="Node with 1 child removal" width="400px" src="/src/imgs/nodewith1TWO.png">
-</picture>
-</p>
 
 ```cpp
 // case 2, one child
@@ -116,11 +102,23 @@ else if (foundNode->left == nullptr || foundNode->right == nullptr) {
 }
 ```
 
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="/src/imgs/nodewith1ONE.png">
+  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/nodewith1ONEDarkMode.png">
+  <img alt="Node with 1 child removal" src="/src/imgs/nodewith1ONE.png>">
+</picture>
+
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="/src/imgs/nodewith1TWO.png">
+  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/nodewith1TWODarkMode.png">
+  <img alt="Node with 1 child removal" width="400px" src="/src/imgs/nodewith1TWO.png">
+</picture>
+</p>
+
 #### Case 3: Node with 2 children
 
 In this case, we will delete a node from a binary search tree that has two children. To do this, we will first find the successor of the node to be deleted. The in-order successor is the next node in the tree that would be visited in an in-order traversal, which visits the nodes in a tree in ascending order (e.g., if the tree is a list of numbers, the in-order traversal would visit the nodes in ascending numerical order). For example, if the node to be deleted contains the number 10, the in-order successor would be the node containing the number 11 because it comes immediately after 10 in the in-order traversal. Once we have found the in-order successor, we replace the node to be deleted with it and adjust the connections between the nodes in the tree accordingly. Finally, we delete the original node and return true to indicate that the delete operation was successful.
-
-Here's the code snippet for the third case.
 
 ```cpp
 // case 3, two children
