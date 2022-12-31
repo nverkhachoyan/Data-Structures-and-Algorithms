@@ -10,11 +10,35 @@ Here is a list of operations this Dictionary can call.
 - InOrderTraversal
 - getRoot
 
-## Removal of an item
+### Removal of an item
 
-Removal involves three different cases, and they are illustrated in the graphs below. I first show the initial state of the graph, and then I explain the different cases with the corresponding graphs accompanying the explanations.
+There are three cases to consider when removing nodes from a graph, as depicted in the accompanying graphs. Firstly, let's review the initial state of the graph. Before we delve into the specifics of each case, it's important to understand the concept of a **successor** node. This function is necessary for the third type of removal we will discuss.
 
-Let's learn the differences between nodes.
+#### The Successor of a Node
+
+Many people think that the successor of a node is simply the left child of the right child of the node. However, this is not true, and I will demonstrate it via the graph below. The simple idea of a successor is that it follows the current value, as in it comes immediately after it. In the graph below, 12 appears after 10, but it is not the next value in sequence. If 10 were replaced with 12, the binary search tree would no longer be valid.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="/src/imgs/notthesuccessor.png">
+    <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/notthesuccessorDarkMode.png">
+    <img alt="Not the successor" width="400px" src="/src/imgs/notthesuccessor.png">
+  </picture>
+</p>
+
+The successor is the node with the smallest value in the right subtree of the target node. In other words, the successor is the leftmost element in the right subtre of the target node. In our case, that would be the node with the value 11.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="/src/imgs/thesuccessor.png">
+    <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/thesuccessorDarkMode.png">
+    <img  alt="The successor" width="400px" src="/src/imgs/thesuccessor.png">
+  </picture>
+</p>
+
+In addition to the **successor** function, there is also a **predecessor** function. Although we will not be using it in our implementation, it serves a similar purpose by identifying the node preceding the target node.
+
+Now, let's examine the three cases of removal in detail.
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="/src/imgs/nodetypes.png">
@@ -122,25 +146,3 @@ graph TD;
     classDef blue fill:#2471A3;
     classDef green fill:#008080;
 ```
-
-#### The Successor of a Node
-
-Many people think that the successor of a node is simply the left child of the right child of the node. However, this is not true, and I will demonstrate it via the graph below. The simple idea of a successor is that it follows the current value, as in it comes immediately after it. In the graph below, 12 appears after 10, but it is not the next value in sequence. If 10 were replaced with 12, the binary search tree would no longer be valid.
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="/src/imgs/notthesuccessor.png">
-    <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/notthesuccessorDarkMode.png">
-    <img alt="Not the successor" width="400px" src="/src/imgs/notthesuccessor.png">
-  </picture>
-</p>
-
-The successor is the node with the smallest value in the right subtree of the target node. In other words, the successor is the leftmost element in the right subtre of the target node. In our case, that would be the node with the value 11.
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="/src/imgs/thesuccessor.png">
-    <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/thesuccessorDarkMode.png">
-    <img  alt="The successor" width="400px" src="/src/imgs/thesuccessor.png">
-  </picture>
-</p>
