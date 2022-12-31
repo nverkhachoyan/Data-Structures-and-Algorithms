@@ -127,16 +127,20 @@ graph TD;
 
 Many people think that the successor of a node is simply the left child of the right child of the node. However, this is not true, and I will demonstrate it via the graph below. The simple idea of a successor is that it follows the current value, as in it comes immediately after it. In the graph below, 12 appears after 10, but it is not the next value in sequence. If 10 were replaced with 12, the binary search tree would no longer be valid.
 
-<picture align="center">
-  <source media="(prefers-color-scheme: light)" srcset="/src/imgs/notthesuccessor.png">
-  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/notthesuccessorDarkMode.png">
-  <img alt="Not the successor" width="400px" src="/src/imgs/notthesuccessor.png">
-</picture>
+<center>
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="/src/imgs/notthesuccessor.png">
+    <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/notthesuccessorDarkMode.png">
+    <img alt="Not the successor" width="400px" src="/src/imgs/notthesuccessor.png">
+  </picture>
+</center>
 
 The successor is the node with the smallest value in the right subtree of the target node. In other words, the successor is the leftmost element in the right subtre of the target node. In our case, that would be the node with the value 11.
 
-<picture>
-  <source media="(prefers-color-scheme: light)" srcset="/src/imgs/thesuccessor.png">
-  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/thesuccessorDarkMode.png">
-  <img  alt="The successor" width="400px" align="center" src="/src/imgs/thesuccessor.png">
-</picture>
+<center>
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="/src/imgs/thesuccessor.png">
+    <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/thesuccessorDarkMode.png">
+    <img  alt="The successor" width="400px" src="/src/imgs/thesuccessor.png">
+  </picture>
+</center>
