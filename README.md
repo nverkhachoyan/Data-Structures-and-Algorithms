@@ -48,29 +48,11 @@ Now, let's examine the three cases of removal in detail.
 
 Let's observe the initial state of the graph below, and then explain the necessary actions depending on each case. Something to note: if the "node" contains x, that means it doesn't exist. The parent points to a nullptr. This is a limitation of my graphing skills using mermaid. In the example below, node 6 has the left child 5 and it does not have a right child, hence the x.
 
-```mermaid
-graph TD;
-
-    2((2)):::node -->1((1));
-    2((2))-->7((7));
-
-
-    7((7))-->4((4)):::blue;
-    7((7))-->8((8));
-
-    4((4))-->3((3)):::red;
-    4((4))-->6((6)):::green;
-
-    6((6))-->5((5));
-    6((6))-->null((x)):::null;
-
-    classDef node stroke:#333;
-    classDef null fill:gray;
-
-    classDef red fill:#CD5C5C;
-    classDef blue fill:#2471A3;
-    classDef green fill:#008080;
-```
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="/src/imgs/initialgraph.png">
+  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/initialgraphDarkMode.png">
+  <img alt="Initial Graph" src="/src/imgs/initialgraph.png">
+</picture>
 
 #### Case 1: A leaf node
 
