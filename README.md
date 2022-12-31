@@ -71,13 +71,13 @@ For the second case, we are removing a **node with one child**. In this case, we
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="/src/imgs/nodewith1ONE.png">
   <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/nodewith1ONEDarkMode.png">
-  <img alt="Leaf Node Removal" src="/src/imgs/nodewith1ONE.png">
+  <img alt="Node with 1 child removal" src="/src/imgs/nodewith1ONE.png>
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="/src/imgs/nodewith1TWO.png">
   <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/nodewith1TWODarkMode.png">
-  <img alt="Leaf Node Removal" src="/src/imgs/nodewith1ONE.png">
+  <img alt="Node with 1 child removal" src="/src/imgs/nodewith1TWO.png">
 </picture>
 
 #### Case 3: Node with 2 children
