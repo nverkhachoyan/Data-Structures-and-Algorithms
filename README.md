@@ -68,6 +68,12 @@ For the first case, let's say we wanted to remove a **leaf node**. I'm going to 
 
 For the second case, we are removing a **node with one child**. In this case, we find the parent of the node to be removed, and we replace the left or right child node of the parent with the child of the node that we want to remove. For example, if we wanted to remove 4 from the graph illustrated above, we first would find its parent. Node 4 is a left child of node 5, so we would replace the left child of node 5 with the left child of node 4 in our graph. It is also important to remember to free the memory that was allocated for the deleted node if possible.
 
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="/src/imgs/leafnoderemovalDarkMode.png">
+  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/leafnoderemovalONEDarkMode.png">
+  <img alt="Leaf Node Removal" src="/src/imgs/leafnoderemovalDarkMode.png">
+</picture>
+
 #### Case 3: Node with 2 children
 
 In this case, we will be removing a node from a binary search tree that has two children. To do this, we will first need to find the successor of the node that we want to remove. The successor is the next element in the tree after the node we are targeting. For example, in a list of numbers, if we want to remove the node containing the number 10, the successor would be the node containing the number 11 because it comes immediately after 10 in the tree. Once we have identified the successor, we will copy its data and use the remove function to remove it from its current position in the tree. Finally, we will replace the node that we originally targeted with the data from the successor. This will complete the removal process.
@@ -91,67 +97,4 @@ else {
   foundNode->meaning = successorWord;
   return true;
 }
-```
-
-Here's the resulting graph for each case. Reading the explanations have always been harder for me, so I hope looking at the visual representation will make it easier.
-
-```mermaid
-graph TD;
-    subgraph Case 3
-
-
-    2c((2)):::node -->1c((1));
-    2c((2))-->7c((7));
-
-
-    7c((7))-->5c((5)):::blue;
-    7c((7))-->8c((8));
-
-    5c((5))-->3c((3)):::blue;
-    5c((5))-->6c((6)):::blue;
-
-
-    classDef node stroke:#084B5F;
-    end
-
-    subgraph Case 2
-
-
-    2b((2)):::node -->1b((1));
-    2b((2))-->7b((7));
-
-
-    7b((7))-->4b((4)):::green;
-    7b((7))-->8b((8));
-
-    4b((4))-->3b((3));
-    4b((4))-->5b((5)):::green;
-
-
-    classDef node stroke:#333;
-    end
-
-        subgraph Case 1
-
-
-    2a((2)):::node -->1a((1));
-    2a((2))-->7a((7));
-
-
-    7a((7))-->4a((4)):::red;
-    7a((7))-->8a((8));
-
-    4a((4))-->3a((x)):::null;
-    4a((4))-->6a((6));
-
-    6a((6))-->5a((5));
-    6a((6))-->nulla((x)):::null;
-
-    classDef node stroke:#333;
-    classDef null fill: gray;
-    end
-
-    classDef red fill:#CD5C5C;
-    classDef blue fill:#2471A3;
-    classDef green fill:#008080;
 ```
