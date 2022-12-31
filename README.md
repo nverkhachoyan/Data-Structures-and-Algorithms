@@ -58,6 +58,12 @@ Let's observe the initial state of the graph below, and then explain the necessa
 
 For the first case, let's say we wanted to remove a **leaf node**. I'm going to choose to remove node 8, which is a left child of node 10. As you may already see, all I need to do is find the parent of the leaf node, and remove its left child. This is the simplest removal process as it just involves removing the left or right link from the parent and deleting the allocated memory for the node. Depending on what programming environment you use, you may not have to free the memory manually.
 
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="/src/imgs/leafnoderemovalDarkMode.png">
+  <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/initialgraphDarkMode.png">
+  <img alt="Initial Graph" src="/src/imgs/initialgraph.png">
+</picture>
+
 #### Case 2: Node with 1 child
 
 For the second case, we are removing a **node with one child**. In this case, we find the parent of the node to be removed, and we replace the left or right child node of the parent with the child of the node that we want to remove. For example, if we wanted to remove 4 from the graph illustrated above, we first would find its parent. Node 4 is a left child of node 5, so we would replace the left child of node 5 with the left child of node 4 in our graph. It is also important to remember to free the memory that was allocated for the deleted node if possible.
