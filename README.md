@@ -74,11 +74,13 @@ For the second case, we are removing a **node with one child**. In this case, we
   <img alt="Node with 1 child removal" src="/src/imgs/nodewith1ONE.png>">
 </picture>
 
+<p align="center">
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="/src/imgs/nodewith1TWO.png">
   <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/nodewith1TWODarkMode.png">
-  <img alt="Node with 1 child removal" src="/src/imgs/nodewith1TWO.png">
+  <img alt="Node with 1 child removal" width="400px" src="/src/imgs/nodewith1TWO.png">
 </picture>
+</p>
 
 #### Case 3: Node with 2 children
 
