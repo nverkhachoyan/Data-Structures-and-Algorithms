@@ -98,7 +98,7 @@ class Dictionary {
                 foundParent->right = nullptr;
                 delete tmp;
             }
-            return true;  // successfully deleted
+            return true;  // successfully removed
         }
         // case 2, one child
         else if (foundNode->left == nullptr || foundNode->right == nullptr) {
@@ -113,7 +113,7 @@ class Dictionary {
             }
 
             delete temp;
-            return true;
+            return true;  // successfully removed
         }
         // case 3, two children
         else {
@@ -138,7 +138,7 @@ class Dictionary {
             successor->right = foundNode->right;
 
             delete foundNode;
-            return true;
+            return true;  // successfully removed
         }
 
         return false;
