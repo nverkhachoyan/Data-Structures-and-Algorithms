@@ -61,7 +61,7 @@ For the first case, let's say we wanted to remove a **leaf node**. I'm going to 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="/src/imgs/leafnoderemovalDarkMode.png">
   <source media="(prefers-color-scheme: dark)" srcset="/src/imgs/leafnoderemovalDarkMode.png">
-  <img alt="Initial Graph" src="/src/imgs/initialgraph.png">
+  <img alt="Leaf Node Removal" src="/src/imgs/leafnoderemovalDarkMode.png">
 </picture>
 
 #### Case 2: Node with 1 child
