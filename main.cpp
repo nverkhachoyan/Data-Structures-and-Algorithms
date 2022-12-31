@@ -130,6 +130,7 @@ class Dictionary {
 
             foundNode->word = successorWord;
             foundNode->meaning = successorWord;
+            return true;
         }
 
         return false;

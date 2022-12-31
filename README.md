@@ -56,15 +56,36 @@ Let's observe the initial state of the graph below, and then explain the necessa
 
 #### Case 1: A leaf node
 
-For the first case, let's say we wanted to remove a **leaf node**. I'm going to choose to remove node 3, which is a left child of node 4. As you may already see, all I need to do is find the parent of the leaf node, and remove its left child. This is the simplest removal process as it just involves removing the left link from the parent and deleting the allocated memory for node 3. Depending on what programming environment you use, you may not have to free the memory manually.
+For the first case, let's say we wanted to remove a **leaf node**. I'm going to choose to remove node 8, which is a left child of node 10. As you may already see, all I need to do is find the parent of the leaf node, and remove its left child. This is the simplest removal process as it just involves removing the left or right link from the parent and deleting the allocated memory for the node. Depending on what programming environment you use, you may not have to free the memory manually.
 
 #### Case 2: Node with 1 child
 
-For the second case, we are removing a **node with one child**. In this case, we find the parent of the node to be removed, and we replace the left or right child node of the parent with the child of the node that we want to remove. For example, if we wanted to remove 6 from the graph illustrated above, we first would find its parent. The parent of node 6 is node 4, so we would replace its right child with the left child of node 6 in our graph. It is also important to remember to free the memory that was allocated for the deleted node.
+For the second case, we are removing a **node with one child**. In this case, we find the parent of the node to be removed, and we replace the left or right child node of the parent with the child of the node that we want to remove. For example, if we wanted to remove 4 from the graph illustrated above, we first would find its parent. Node 4 is a left child of node 5, so we would replace the left child of node 5 with the left child of node 4 in our graph. It is also important to remember to free the memory that was allocated for the deleted node if possible.
 
 #### Case 3: Node with 2 children
 
-For our third case, we are going to remove a **node with two children**. This case involves finding the succssor of our node that is going to be removed, and relabel the node with said successor. The successor is pretty much the next element that comes after the one we have targeted. For example, in a list of numbers, [...,3,4,5,6] the succesor of number 4 would be number 5 because that's what succeeds it. After we have successfully implemented an algorithm to find the successor, we can then make the appropriate connections to relabel the node.
+In this case, we will be removing a node from a binary search tree that has two children. To do this, we will first need to find the successor of the node that we want to remove. The successor is the next element in the tree after the node we are targeting. For example, in a list of numbers, if we want to remove the node containing the number 10, the successor would be the node containing the number 11 because it comes immediately after 10 in the tree. Once we have identified the successor, we will copy its data and use the remove function to remove it from its current position in the tree. Finally, we will replace the node that we originally targeted with the data from the successor. This will complete the removal process.
+
+Here's the code snippet for the third case.
+
+```cpp
+else {
+  Node *successor = foundNode->right;
+
+  while (successor->left != nullptr) {
+      successor = successor->left;
+  }
+
+  std::string successorWord = successor->word;
+  std::string successorMeaning = successor->meaning;
+
+  remove(successor->word);
+
+  foundNode->word = successorWord;
+  foundNode->meaning = successorWord;
+  return true;
+}
+```
 
 Here's the resulting graph for each case. Reading the explanations have always been harder for me, so I hope looking at the visual representation will make it easier.
 
