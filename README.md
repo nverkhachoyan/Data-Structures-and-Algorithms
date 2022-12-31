@@ -147,5 +147,3 @@ else {
     return true; // successfully removed
 }
 ```
-
-try
