@@ -10,7 +10,7 @@ Here is a list of operations this Dictionary can call.
 - InOrderTraversal
 - getRoot
 
-### Removal of an item
+## Removal of an item
 
 There are three cases to consider when removing nodes from a graph, as depicted in the accompanying graphs. Firstly, let's review the initial state of the graph. Before we delve into the specifics of each case, it's important to understand the concept of a **successor** node. This function is necessary for the third type of removal we will discuss.
 
