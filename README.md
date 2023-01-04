@@ -12,8 +12,18 @@ Sorting algorithms:
 - insertion sort
 - selection sort
 
-Search algorithms: linear search, binary search
-Data structures: linked list, stack, queue, tree
+Search algorithms:
+
+- linear search
+- binary search
+
+Data structures:
+
+- linked list
+- stack
+- queue
+- tree
+
 More data structures and algorithms will be added in the future.
 
 If you have any suggestions for data structures or algorithms that you would like to see implemented, please feel free to open an issue or submit a pull request.
