@@ -6,7 +6,12 @@ In this repo, you will find implementations of various data structures and algor
 
 Currently, the following data structures and algorithms have been implemented:
 
-Sorting algorithms: bubble sort, insertion sort, selection sort
+Sorting algorithms:
+
+- bubble sort
+- insertion sort
+- selection sort
+
 Search algorithms: linear search, binary search
 Data structures: linked list, stack, queue, tree
 More data structures and algorithms will be added in the future.
