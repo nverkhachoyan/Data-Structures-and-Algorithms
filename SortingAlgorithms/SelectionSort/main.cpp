@@ -1,21 +1,25 @@
 #include <iostream>
 
 // bubble sort
-void bubbleSort(int arr[], int size) {
-    int temp = 0;
+void selectionSort(int arr[], int size) {
+    int currMinimum, temp;
 
-    for (int i = size; i > 0; i--) {
-        for (int j = 1; j < i; j++) {
-            if (arr[j - 1] > arr[j]) {
-                temp = arr[j - 1];
-                arr[j - 1] = arr[j];
-                arr[j] = temp;
+    for (size_t i = 0; i < size; i++) {
+        currMinimum = i;
+        /* look for the minimum in the unsoerted list */
+        for (size_t j = i + 1; j < size; j++) {
+            if (arr[j] < arr[currMinimum]) {
+                currMinimum = j;
             }
         }
+        /* swap elements */
+        temp = arr[i];
+        arr[i] = arr[currMinimum];
+        arr[currMinimum] = temp;
     }
 }
 
-// printing the array
+// prints the array
 void printArray(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         std::cout << arr[i];
@@ -31,11 +35,12 @@ int main() {
     printArray(arr, size);
 
     // sort the array
-    bubbleSort(arr, size);
+    selectionSort(arr, size);
 
     std::cout << std::endl;
     std::cout << "Sorted array: ";
     printArray(arr, size);
+    std::cout << std::endl;
 
     return 0;
 }
