@@ -1,6 +1,6 @@
 #include <iostream>
 
-// bubble sort
+/* bubble sort */
 void bubbleSort(int arr[], int size) {
     int temp = 0;
 

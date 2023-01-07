@@ -1,6 +1,6 @@
 #include <iostream>
 
-// bubble sort
+/* selection sort */
 void selectionSort(int arr[], int size) {
     int currMinimum, temp;
 
