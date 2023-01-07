@@ -1,4 +1,4 @@
-# Bubble Sort
+# Selection Sort
 
 Selection sort is an algorithm for sorting an array of elements. It works by repeatedly finding the minimum element from the unsorted portion of the array and adding it to the sorted portion of the array.
 
